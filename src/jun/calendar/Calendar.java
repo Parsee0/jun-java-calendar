@@ -9,6 +9,7 @@ public class Calendar {
 	public int getMaxDaysOfMonth(int month) { // int로 입력받아서 int를 되돌려준다.
 		return MAX_DAYS[month - 1];
 	} // 기능을 하나의 함수로 만들어 밖으로 빼내었음.
+	  // 배열의 시작은 1부터가 아니라 0부터이므로 'month - 1'을 사용해주어야한다.
 	
 	public void printSampleCalendar() {
 		System.out.println("일   월   화   수   목   금   토");
