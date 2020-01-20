@@ -20,7 +20,7 @@ public class Calendar {
 		
 		int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		
-		System.out.printf("%d월은 %d일까지 있습니다. \n", month, maxDays[month]);
+		System.out.printf("%d월은 %d일까지 있습니다. \n", month, maxDays[month - 1]);
 		scanner.close();
 		
 	}
