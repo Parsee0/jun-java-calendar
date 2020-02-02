@@ -4,6 +4,15 @@ import java.util.Scanner;
 
 public class Prompt2 {
 	
+	public void printMenu() {
+		System.out.println("+----------------------+");
+		System.out.println("| 1. 일정 등록");
+		System.out.println("| 2. 일정 검색");
+		System.out.println("| 3. 달력 보기");
+		System.out.println("| h. 도움말 q. 종료");
+		System.out.println("+----------------------+");
+	} // 사용자 UI를 만들어서 출력한다.
+	
 	/*
 	 * 0 = Sunday 부터 시작해서 6 = Saturday까지
 	 */
@@ -29,9 +38,10 @@ public class Prompt2 {
 	}
 	
 	public void runPrompt() {
-
-		// 숫자를 입력받아 해당하는 달의 최대 일 수를 출력하는 프로그램
 		
+		printMenu(); // UI를 출력하는 메소드 호출
+		
+		// 숫자를 입력받아 해당하는 달의 최대 일 수를 출력하는 프로그램
 		Scanner scanner = new Scanner(System.in);
 		Calendar3 cal = new Calendar3(); // Calendar 생성
 		
@@ -39,6 +49,20 @@ public class Prompt2 {
 		int year = 2020;
 		
 		while (true) {
+			String cmd = scanner.next();
+			if(cmd.equals("1")) {
+				cmdRegistration();
+			} else if (cmd.equals("2")) {
+				cmdSearchplan();
+			} else if (cmd.equals("3")) {
+				cmdShowcal();
+			} else if (cmd.equals("h")) {
+				cmdHelp();
+			} else if (cmd.equals("q")) {
+				break;
+			}
+			
+			
 			System.out.println("\n연도를 입력하세요. (-1을 입력하면 종료)");
 			System.out.print("YEAR> ");
 			year = scanner.nextInt();
@@ -65,6 +89,22 @@ public class Prompt2 {
 //		int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		System.out.println("Have a nice day!");
 		scanner.close();
+		
+	}
+
+	private void cmdHelp() {
+		
+	}
+
+	private void cmdShowcal() {
+		
+	}
+
+	private void cmdSearchplan() {
+		
+	}
+
+	private void cmdRegistration() {
 		
 	}
 

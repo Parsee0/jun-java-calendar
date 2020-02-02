@@ -69,7 +69,7 @@ public class Calendar3 {
 	
 	private int getWeekday(int year, int month, int day) {
 		int standardyear = 1970;
-		final int STANDARD_WEEKDAY = 3; // 1970년 1월 1일이 목요일이기 때문에 3을 기준으로 잡음.
+		final int STANDARD_WEEKDAY = 4; // 1970년 1월 1일이 목요일이기 때문에 4을 기준으로 잡음.
 		
 		int count = 0;
 		
@@ -83,7 +83,7 @@ public class Calendar3 {
 			count += delta;
 		}
 		
-		count += day;
+		count += day - 1;
 		
 		int weekday = (count + STANDARD_WEEKDAY) % 7;
 		return weekday;
