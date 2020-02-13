@@ -1,9 +1,33 @@
 package jun.calendar;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 public class Calendar3 {
 	
 	private static final int[] MAX_DAYS = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	private static final int[] LEAP_MAX_DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}; // 윤년에는 2월에 29일이 생기므로 새로운 배열을 하나 더 만들었다.
+	
+	private HashMap <Date, String> planMap;
+	
+	public Calendar3() {
+		planMap = new HashMap<Date, String>(); // 생성자
+	}
+	
+	// date를 string 형태로 받을 것이다.
+	public void registerPlan(String strDate, String plan) throws ParseException {
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
+		//System.out.println(date);
+		planMap.put(date, plan);
+	} // 일정 등록하기
+	
+	public String searchPlan(String strDate) throws ParseException {
+		Date date = new SimpleDateFormat("yyyy-MM-dd").parse(strDate);
+		String plan = planMap.get(date);
+		return plan;
+	} // 일정 검색하기
 	
 	public boolean isLeapYear(int year) {
 		if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
